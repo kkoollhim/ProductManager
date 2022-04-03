@@ -1,0 +1,12 @@
+#Create database
+CREATE DATABASE productmanager;
+
+#Create Table
+CREATE TABLE Products (
+    Product_ID varchar(255) NOT NULL,
+    Product_Category varchar(255),
+    Product_Name varchar(255),
+    Product_Description varchar(255),
+    Units int,
+    PRIMARY KEY (Product_ID)
+);
