@@ -1,0 +1,41 @@
+<div class="card m-3">
+    <h5 class="card-header">Product Form</h5>
+    <div class="card-body">
+        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" formControlName="productName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.productName.errors }" />
+                <div *ngIf="submitted && f.productName.errors" class="invalid-feedback">
+                    <div *ngIf="f.productName.errors.required">Product name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Product Category</label>
+                <input type="text" formControlName="productCategory" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.productCategory.errors }" />
+                <div *ngIf="submitted && f.productCategory.errors" class="invalid-feedback">
+                    <div *ngIf="f.productCategory.errors.required">Product Category is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Product Description</label>
+                <input type="text" formControlName="productDescription" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.productDescription.errors }" />
+                <div *ngIf="submitted && f.productDescription.errors" class="invalid-feedback">
+                    <div *ngIf="f.productDescription.errors.required">Product Description is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Units</label>
+                <input type="text" formControlName="units" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.units.errors }" />
+                <div *ngIf="submitted && f.units.errors" class="invalid-feedback">
+                    <div *ngIf="f.units.errors.required">units is required</div>
+                    <div *ngIf="f.units.errors.minlength">Units must be greater than 0.</div>
+                </div>
+            </div>
+            <br />
+            <div class="text-center">
+                <button class="btn btn-primary mr-1">Submit</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()" style="margin-left: 20px;">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
